@@ -1,9 +1,11 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const app = express();
 require('dotenv').config();
 let Item = require('./models/items.js');
 
+const app = express();
+
+//access public html files
 app.use(express.static('public'));
 
 app.use(express.json());
@@ -22,6 +24,9 @@ mongoose.connection.once('open', () =>
 {
     console.log('Connected to mongo');
 })
+
+
+
 app.listen(5000, () =>
 {
     console.log('Server is listening on port 5000...');
