@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const MyItem = require('./models/items.js');
 require('dotenv').config();
 let Item = require('./models/items.js');
 
@@ -25,7 +26,30 @@ mongoose.connection.once('open', () =>
     console.log('Connected to mongo');
 })
 
+//collect all the items from the data base and send them to the front end
+app.get('/display_items', async (req, res) =>
+{
+    let response = await MyItem.find({});
+    res.send(response);
+});
 
+//create new items and put them onto the inventory database
+app.post('/create_item', async (req, res) =>
+{
+    const {priceNum: price, inventoryNum: inventory, nextDeliveryString: nextDelivery, deliveryAmtNum: deliveryAmt, nameString: name} = req.body
+
+    let returnedItem = await MyItem.create
+    ({
+        price,
+        inventory,
+        nextDelivery,
+        deliveryAmt,
+        name
+    });
+
+    console.log(returnedItem);
+    res.send(returnedItem);
+})
 
 app.listen(5000, () =>
 {
