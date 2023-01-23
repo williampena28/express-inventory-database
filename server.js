@@ -39,6 +39,7 @@ app.get('/display_items', async (req, res) =>
 //create new items and put them onto the inventory database
 app.post('/create_item', async (req, res) =>
 {
+    //send the returned item to the front end
     let returnedItem = await MyItem.create(req.body);
 
     res.send(returnedItem);
