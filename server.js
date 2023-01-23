@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const MyItem = require('./models/items.js');
+const bodyParser = require('body-parser');
 require('dotenv').config();
 let Item = require('./models/items.js');
 
@@ -10,6 +11,8 @@ const app = express();
 app.use(express.static('public'));
 
 app.use(express.json());
+
+app.use(bodyParser.json());
 
 app.use(express.urlencoded({extended: true}));
 
@@ -36,18 +39,8 @@ app.get('/display_items', async (req, res) =>
 //create new items and put them onto the inventory database
 app.post('/create_item', async (req, res) =>
 {
-    const {priceNum: price, inventoryNum: inventory, nextDeliveryString: nextDelivery, deliveryAmtNum: deliveryAmt, nameString: name} = req.body
+    let returnedItem = await MyItem.create(req.body);
 
-    let returnedItem = await MyItem.create
-    ({
-        price,
-        inventory,
-        nextDelivery,
-        deliveryAmt,
-        name
-    });
-
-    console.log(returnedItem);
     res.send(returnedItem);
 })
 

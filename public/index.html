@@ -9,13 +9,36 @@
     <link rel="stylesheet" href="./index.css">
 </head>
 <body>
+    <div id="navContainer">
+        <nav>
+            <h1 id="displayContainer">Display all items</h1>
+        </nav>
+    </div>
     <div id="main-content">
-        <div class="nav-bar-container">
-            <nav>
-                <h1>Display all items</h1>
-            </nav>
+        <div id="submit-content">
+            <h1>Create item:</h1>
+            <div id="inputContainer">
+                <label for="price-item-input">Price</label>
+                <input type="number" id="price-item-input"/>
+            </div>
+            <div id="inputContainer">
+                <label for="inventory-item-input">Inventory</label>
+                <input type="number" id="inventory-item-input"/>
+            </div>
+            <div id="inputContainer">
+                <label for="next-delivery-input">Next Delivery</label>
+                <input type="text" id="next-delivery-input"/>
+            </div>
+            <div id="inputContainer">
+                <label for="delivery-amt-input">Delivery AMT</label>
+                <input type="number" id="delivery-amt-input"/>
+            </div>
+            <div id="inputContainer">  
+                <label for="name-item-input">Name</label>
+                <input type="text" id="name-item-input"/>
+            </div>
+            <button id="submit-button">Create Item</button>
         </div>
-        <h1>Homepage!</h1>
     </div>
 </body>
 </html>

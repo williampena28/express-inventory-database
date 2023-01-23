@@ -1,22 +1,44 @@
-.nav-bar-container
+#navContainer
 {
-    background-color: rgb(192, 166, 121);
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+    max-width: 200px;
+    margin: auto;
     padding: 4px;
+}
+#main-content
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    background-color: #c5c0a4;
+    margin:auto;
+    max-width: 500px;
 }
 h1
 {
     font-family:sans-serif;
 }
-#main-content
+#submit-content
 {
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+}
+#inputContainer
+{
+    display: flex;
+    flex-direction: column;
+    max-width: 100px;
+    margin: 10px;
+    font-family:sans-serif;
+}
+#submit-button
+{
+    max-width: 100px;
+    margin: 20px;
 }
 body
 {
-    background-color: rgb(197, 192, 164);
+    background-color: #d8d875;
 }
